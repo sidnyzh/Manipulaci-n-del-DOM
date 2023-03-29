@@ -6,7 +6,11 @@ const createTask = (evento)  => {
     evento.preventDefault(); 
     const input = document.querySelector("[data-form-input]")
     const value = input.value;
-    const task = document.querySelector("[data-task]")
+    const list = document.querySelector("[data-list]")
+    //crear un elemento especificando el tipo de elemento 
+    const task = document.createElement("li");
+    //agregar una clase a este elemento 
+    task.classList.add("card")
     input.value = "";  
     //Backticks  
     const content = ` <div>
@@ -15,6 +19,10 @@ const createTask = (evento)  => {
   </div>
   <i class="fas fa-trash-alt trashIcon icon"></i></li>`;
    task.innerHTML = content;   
+
+   //agregarle un hijo 
+
+   list.appendChild(task)
     console.log(content)
 };
 
